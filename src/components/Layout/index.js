@@ -10,7 +10,7 @@ export default function Layout({
 }) {
   
   const theme = useTheme();
-  console.log(`Log aqui`,theme);
+  // console.log(`Log aqui`,theme);
 
   return (
     <>
