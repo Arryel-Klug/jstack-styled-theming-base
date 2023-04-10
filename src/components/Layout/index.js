@@ -5,28 +5,27 @@ import Header from '../Header';
 import PostsList from '../PostsList';
 import Footer from '../Footer';
 
-export default function Layout() {
+export default class Layout extends React.Component{
+  componentDidMount(){
+    document.addEventListener('scroll', this.handleScroll);
+  }
   
-  const theme = useTheme();
-  // console.log(`Log aqui`,theme);
+  componentWillUnmount(){
+    console.log('componente vai de base');
+    document.removeEventListener('scroll', this.handleScroll);
+  }
 
-  return (
-    <>
-      <Header/>
-      <PostsList />
-      <Footer/>
+  handleScroll = () => {
+    console.log('scrolled...')
+  }
 
-    <div
-      style={{
-        marginTop:24,
-        backgroundColor: theme.footerBackgroundColor,
-        padding: 24,
-        font: 'white',        
-      }}
-    >
-      Trau
-    </div>
-
-  </>
-  );
+  render(){
+    return(
+      <>
+        <Header />
+        <PostsList />
+        <Footer />
+      </>
+    );
+  }
 }
